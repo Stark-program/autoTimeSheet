@@ -1,5 +1,11 @@
 const { range } = require("lodash");
 const XlsxPopulate = require("xlsx-populate");
+// const cron = require("node-cron");
+
+// cron.schedule("*/1 * * * *", () => {
+//   var x = new Date();
+//   console.log(x);
+// });
 
 XlsxPopulate.fromFileAsync("./Blank Time Sheet.xlsx").then((workbook) => {
   // sets 40 hour work week values @ 8 hrs a day
@@ -33,7 +39,51 @@ XlsxPopulate.fromFileAsync("./Blank Time Sheet.xlsx").then((workbook) => {
   workbook
     .sheet("Front")
     .cell("C4")
-    .value(m + "/" + payPeriodStartDay);
+    .value(m + "/" + (d - 12));
+  workbook
+    .sheet("Front")
+    .cell("D4")
+    .value(m + "/" + (d - 11));
+  workbook
+    .sheet("Front")
+    .cell("E4")
+    .value(m + "/" + (d - 10));
+  workbook
+    .sheet("Front")
+    .cell("F4")
+    .value(m + "/" + (d - 9));
+  workbook
+    .sheet("Front")
+    .cell("G4")
+    .value(m + "/" + (d - 8));
+  workbook
+    .sheet("Front")
+    .cell("H4")
+    .value(m + "/" + (d - 7));
+  workbook
+    .sheet("Front")
+    .cell("I4")
+    .value(m + "/" + (d - 6));
+  workbook
+    .sheet("Front")
+    .cell("J4")
+    .value(m + "/" + (d - 5));
+  workbook
+    .sheet("Front")
+    .cell("K4")
+    .value(m + "/" + (d - 4));
+  workbook
+    .sheet("Front")
+    .cell("L4")
+    .value(m + "/" + (d - 3));
+  workbook
+    .sheet("Front")
+    .cell("M4")
+    .value(m + "/" + (d - 2));
+  workbook
+    .sheet("Front")
+    .cell("N4")
+    .value(m + "/" + (d - 1));
 
   //end of pay period
   const payPeriodTurnInDate = new Date().toLocaleDateString();
